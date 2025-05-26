@@ -1,20 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.0b1 on win32)" generated="20250523 12:23:01.013" rpa="true" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.0b1 on win32)" generated="20250526 17:04:26.526" rpa="true" schemaversion="4">
 <suite id="s1" name="Rpa" source="C:\Users\vikashgupta03\OneDrive - Nagarro\Projects\Rpa">
 <suite id="s1-s1" name="Login" source="C:\Users\vikashgupta03\OneDrive - Nagarro\Projects\Rpa\login.robot">
-<test id="s1-s1-t1" name="Open Tasklist and completet a task" line="12">
+<test id="s1-s1-t1" name="Open Tasklist and Complete a Task" line="11">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20250523 12:23:02.358" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8082'.</msg>
-<status status="PASS" starttime="20250523 12:23:02.342" endtime="20250523 12:23:25.533"/>
+<msg timestamp="20250526 17:04:27.002" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8082'.</msg>
+<status status="PASS" starttime="20250526 17:04:27.002" endtime="20250526 17:04:31.949"/>
 </kw>
-<status status="PASS" starttime="20250523 12:23:02.342" endtime="20250523 12:23:25.575"/>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20250526 17:04:31.951" endtime="20250526 17:04:32.098"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${login_needed}</var>
+<arg>Page Should Contain Element</arg>
+<arg>id=username</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>id=username</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20250526 17:04:32.183" level="INFO">Current page contains element 'id=username'.</msg>
+<status status="PASS" starttime="20250526 17:04:32.104" endtime="20250526 17:04:32.183"/>
+</kw>
+<msg timestamp="20250526 17:04:32.183" level="INFO">${login_needed} = True</msg>
+<status status="PASS" starttime="20250526 17:04:32.102" endtime="20250526 17:04:32.183"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${login_needed}</arg>
+<arg>Perform Login</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Perform Login">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=username</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20250526 17:04:32.191" level="INFO">Typing text 'demo' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20250526 17:04:32.191" endtime="20250526 17:04:32.458"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20250526 17:04:32.458" level="INFO">Typing text 'demo' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20250526 17:04:32.458" endtime="20250526 17:04:32.765"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=kc-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20250526 17:04:32.769" level="INFO">Clicking button 'id=kc-login'.</msg>
+<status status="PASS" starttime="20250526 17:04:32.765" endtime="20250526 17:04:34.546"/>
+</kw>
+<status status="PASS" starttime="20250526 17:04:32.191" endtime="20250526 17:04:34.549"/>
+</kw>
+<status status="PASS" starttime="20250526 17:04:32.191" endtime="20250526 17:04:34.550"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${popup}</var>
+<arg>Click Element</arg>
+<arg>xpath=//button[text()='OK']</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()='OK']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20250526 17:04:34.562" level="INFO">Clicking element 'xpath=//button[text()='OK']'.</msg>
+<msg timestamp="20250526 17:04:35.584" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20250526 17:04:35.586" level="FAIL">Element with locator 'xpath=//button[text()='OK']' not found.</msg>
+<status status="FAIL" starttime="20250526 17:04:34.559" endtime="20250526 17:04:35.596"/>
+</kw>
+<msg timestamp="20250526 17:04:35.597" level="INFO">${popup} = False</msg>
+<status status="PASS" starttime="20250526 17:04:34.551" endtime="20250526 17:04:35.597"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${popup}</arg>
+<arg>Log</arg>
+<arg>Clicked OK on popup</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20250526 17:04:35.597" endtime="20250526 17:04:35.603"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>not ${popup}</arg>
+<arg>Log</arg>
+<arg>No popup appeared</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log" library="BuiltIn">
+<arg>No popup appeared</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20250526 17:04:35.605" level="INFO">No popup appeared</msg>
+<status status="PASS" starttime="20250526 17:04:35.605" endtime="20250526 17:04:35.605"/>
+</kw>
+<status status="PASS" starttime="20250526 17:04:35.603" endtime="20250526 17:04:35.605"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20250526 17:04:35.605" endtime="20250526 17:04:40.222"/>
+</kw>
+<status status="PASS" starttime="20250526 17:04:26.996" endtime="20250526 17:04:40.222"/>
 </test>
-<status status="PASS" starttime="20250523 12:23:01.053" endtime="20250523 12:23:25.900"/>
+<status status="PASS" starttime="20250526 17:04:26.583" endtime="20250526 17:04:40.222"/>
 </suite>
-<status status="PASS" starttime="20250523 12:23:01.013" endtime="20250523 12:23:25.933"/>
+<status status="PASS" starttime="20250526 17:04:26.535" endtime="20250526 17:04:40.237"/>
 </suite>
 <statistics>
 <total>
