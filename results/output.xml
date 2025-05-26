@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.0b1 on win32)" generated="20250523 12:23:01.013" rpa="true" schemaversion="4">
+<suite id="s1" name="Rpa" source="C:\Users\vikashgupta03\OneDrive - Nagarro\Projects\Rpa">
+<suite id="s1-s1" name="Login" source="C:\Users\vikashgupta03\OneDrive - Nagarro\Projects\Rpa\login.robot">
+<test id="s1-s1-t1" name="Open Tasklist and completet a task" line="12">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20250523 12:23:02.358" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8082'.</msg>
+<status status="PASS" starttime="20250523 12:23:02.342" endtime="20250523 12:23:25.533"/>
+</kw>
+<status status="PASS" starttime="20250523 12:23:02.342" endtime="20250523 12:23:25.575"/>
+</test>
+<status status="PASS" starttime="20250523 12:23:01.053" endtime="20250523 12:23:25.900"/>
+</suite>
+<status status="PASS" starttime="20250523 12:23:01.013" endtime="20250523 12:23:25.933"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Rpa">Rpa</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Login">Rpa.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
