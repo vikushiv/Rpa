@@ -12,5 +12,3 @@ ${PASSWORD}    demo
 *** Tasks ***
 Open Tasklist and completet a task
     Open Browser    ${URL}    ${BROWSER}
-
-
